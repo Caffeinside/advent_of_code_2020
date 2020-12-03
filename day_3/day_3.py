@@ -36,6 +36,6 @@ def second_star(forest_map: List[str]) -> int:
 
 
 if __name__ == '__main__':
-    input_data = parse_input('input.txt')
+    input_data = parse_input('./day_3/input.txt')
     print(first_star(input_data))
     print(second_star(input_data))
