@@ -1,7 +1,7 @@
 from typing import List
 
 
-def parse_input(filename: str) -> List[str]:
+def parse_forest_map(filename: str) -> List[str]:
     forest_map = []
     with open(filename) as f:
         for line in f:
@@ -36,6 +36,6 @@ def second_star(forest_map: List[str]) -> int:
 
 
 if __name__ == '__main__':
-    input_data = parse_input('./day_3/input.txt')
+    input_data = parse_forest_map('./day_3/input.txt')
     print(first_star(input_data))
     print(second_star(input_data))

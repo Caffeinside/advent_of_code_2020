@@ -1,7 +1,7 @@
 from typing import List
 
 
-def parse_input(filename: str) -> List[int]:
+def parse_expenses(filename: str) -> List[int]:
     expenses = []
     with open(filename) as f:
         for line in f:
@@ -25,6 +25,6 @@ def second_star(expenses: List[int]) -> int:
 
 
 if __name__ == '__main__':
-    expenses_list = parse_input('./day_1/input.txt')
+    expenses_list = parse_expenses('./day_1/input.txt')
     print(first_star(expenses_list))
     print(second_star(expenses_list))

@@ -1,7 +1,7 @@
 from typing import List, Tuple
 
 
-def parse_input(filename: str) -> List[Tuple]:
+def parse_passwords(filename: str) -> List[Tuple]:
     password_data = []
     with open(filename) as f:
         for line in f:
@@ -37,6 +37,6 @@ def second_star(password_data: List[Tuple]) -> int:
 
 
 if __name__ == '__main__':
-    input_data = parse_input('./day_2/input.txt')
+    input_data = parse_passwords('./day_2/input.txt')
     print(first_star(input_data))
     print(second_star(input_data))
