@@ -1,3 +1,4 @@
+import os
 import re
 from typing import List
 
@@ -60,6 +61,7 @@ def check_validation_rules(passport: dict) -> bool:
 
 
 if __name__ == '__main__':
-    input_data = parse_passports('./day_4/input.txt')
+    input_file_path = os.path.join(os.path.dirname(__file__), 'input.txt')
+    input_data = parse_passports(input_file_path)
     print(first_star(input_data))
     print(second_star(input_data))

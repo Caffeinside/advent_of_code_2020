@@ -1,3 +1,4 @@
+import os
 from typing import List, Tuple
 
 
@@ -37,6 +38,7 @@ def second_star(password_data: List[Tuple]) -> int:
 
 
 if __name__ == '__main__':
-    input_data = parse_passwords('./day_2/input.txt')
+    input_file_path = os.path.join(os.path.dirname(__file__), 'input.txt')
+    input_data = parse_passwords(input_file_path)
     print(first_star(input_data))
     print(second_star(input_data))

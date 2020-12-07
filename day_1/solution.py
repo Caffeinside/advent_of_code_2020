@@ -1,3 +1,4 @@
+import os
 from typing import List
 
 
@@ -25,6 +26,7 @@ def second_star(expenses: List[int]) -> int:
 
 
 if __name__ == '__main__':
-    expenses_list = parse_expenses('./day_1/input.txt')
+    input_file_path = os.path.join(os.path.dirname(__file__), 'input.txt')
+    expenses_list = parse_expenses(input_file_path)
     print(first_star(expenses_list))
     print(second_star(expenses_list))
