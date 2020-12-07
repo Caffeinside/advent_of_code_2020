@@ -30,10 +30,8 @@ def count_bags_eventually_containing_shiny_gold(luggage_rules: List[str]) -> int
     tmp_possible_bags = possible_bags = search_bags_containing_bags(bags_dict, ['shiny gold'])
 
     while tmp_possible_bags:
-        new_possible_bags = search_bags_containing_bags(bags_dict, tmp_possible_bags)
-        possible_bags.extend(new_possible_bags)
-        tmp_possible_bags = new_possible_bags
-
+        tmp_possible_bags = search_bags_containing_bags(bags_dict, tmp_possible_bags)
+        possible_bags.extend(tmp_possible_bags)
     return len(set(possible_bags))
 
 
