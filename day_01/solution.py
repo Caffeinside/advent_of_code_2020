@@ -2,12 +2,9 @@ import os
 from typing import List
 
 
-def parse_expenses(filename: str) -> List[int]:
-    expenses = []
-    with open(filename) as f:
-        for line in f:
-            expenses.append(int(line))
-    return expenses
+def parse_expenses(file_path: str) -> List[int]:
+    f = open(file_path, 'r')
+    return [int(line) for line in f.readlines()]
 
 
 def first_star(expenses: List[int]) -> int:

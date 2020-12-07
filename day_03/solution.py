@@ -2,12 +2,9 @@ import os
 from typing import List
 
 
-def parse_forest_map(filename: str) -> List[str]:
-    forest_map = []
-    with open(filename) as f:
-        for line in f:
-            forest_map.append(line[:-1])
-    return forest_map
+def parse_forest_map(file_path: str) -> List[str]:
+    f = open(file_path, 'r')
+    return [line.replace('\n', '') for line in f.readlines()]
 
 
 def count_trees(forest_map: List[str], horizontal_step: int, vertical_step: int) -> int:

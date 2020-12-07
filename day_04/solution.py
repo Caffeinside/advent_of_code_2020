@@ -5,10 +5,10 @@ from typing import List
 MANDATORY_FIELDS = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
 
 
-def parse_passports(filename: str) -> List[dict]:
+def parse_passports(file_path: str) -> List[dict]:
     passports = []
     individual_passport = {}
-    with open(filename) as f:
+    with open(file_path) as f:
         for line in f:
             if line[:-1] == '':
                 passports.append(individual_passport)

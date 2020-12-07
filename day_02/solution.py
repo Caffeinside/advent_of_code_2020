@@ -2,9 +2,9 @@ import os
 from typing import List, Tuple
 
 
-def parse_passwords(filename: str) -> List[Tuple]:
+def parse_passwords(file_path: str) -> List[Tuple]:
     password_data = []
-    with open(filename) as f:
+    with open(file_path) as f:
         for line in f:
             split_line = line.split()
             numbers = split_line[0].split('-')
