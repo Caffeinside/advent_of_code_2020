@@ -37,5 +37,5 @@ def find_column(seat: str) -> int:
 if __name__ == '__main__':
     input_file_path = os.path.join(os.path.dirname(__file__), 'input.txt')
     seats_data = parse_seats(input_file_path)
-    print('Solution 1: ', find_max_seat_id(seats_data))
-    print('Solution 2: ', find_missing_seat_id(seats_data))
+    print('Solution 1: ', find_max_seat_id(seats_data))  # 915
+    print('Solution 2: ', find_missing_seat_id(seats_data))  # 699

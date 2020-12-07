@@ -28,5 +28,5 @@ def second_star(expenses: List[int]) -> int:
 if __name__ == '__main__':
     input_file_path = os.path.join(os.path.dirname(__file__), 'input.txt')
     expenses_list = parse_expenses(input_file_path)
-    print(first_star(expenses_list))
-    print(second_star(expenses_list))
+    print(first_star(expenses_list))  # 988771
+    print(second_star(expenses_list))  # 171933104

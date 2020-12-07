@@ -63,5 +63,5 @@ def check_validation_rules(passport: dict) -> bool:
 if __name__ == '__main__':
     input_file_path = os.path.join(os.path.dirname(__file__), 'input.txt')
     input_data = parse_passports(input_file_path)
-    print(first_star(input_data))
-    print(second_star(input_data))
+    print(first_star(input_data))  # 233
+    print(second_star(input_data))  # 111

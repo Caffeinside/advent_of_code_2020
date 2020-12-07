@@ -39,5 +39,5 @@ def second_star(forest_map: List[str]) -> int:
 if __name__ == '__main__':
     input_file_path = os.path.join(os.path.dirname(__file__), 'input.txt')
     input_data = parse_forest_map(input_file_path)
-    print(first_star(input_data))
-    print(second_star(input_data))
+    print(first_star(input_data))  # 200
+    print(second_star(input_data))  # 3737923200

@@ -43,5 +43,5 @@ if __name__ == '__main__':
     input_file_path = os.path.join(os.path.dirname(__file__), 'input.txt')
     answers_data = parse_answers(input_file_path)
     answers_by_group = get_answers_for_each_group(answers_data)
-    print('Solution 1: ', get_sum_of_questions_answers_by_anyone_in_all_groups(answers_by_group))
-    print('Solution 2: ', get_sum_of_questions_answers_by_everyone_in_all_groups(answers_by_group))
+    print('Solution 1: ', get_sum_of_questions_answers_by_anyone_in_all_groups(answers_by_group))  # 6809
+    print('Solution 2: ', get_sum_of_questions_answers_by_everyone_in_all_groups(answers_by_group))  # 3394
