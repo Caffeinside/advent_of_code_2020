@@ -1,17 +1,18 @@
 import os
+from typing import List, Tuple
 
 
-def parse_instructions(file_path):
+def parse_instructions(file_path: str) -> List[List[str]]:
     f = open(file_path, 'r')
     return [line.replace('\n', '').split() for line in f.readlines()]
 
 
-def get_accumulator_value_before_second_execution(instructions):
+def get_accumulator_value_before_second_execution(instructions: List[List[str]]) -> int:
     accumulator, _ = execute_instructions(instructions)
     return accumulator
 
 
-def get_accumulator_value_after_termination(instructions):
+def get_accumulator_value_after_termination(instructions: List[List[str]]) -> int:
     indexes_to_invert = [i for i, value in enumerate(instructions) if (value[0] == 'nop') or (value[0] == 'jmp')]
     for index_to_invert in indexes_to_invert:
         accumulator, program_terminated = execute_instructions(instructions, index_to_invert)
@@ -19,7 +20,7 @@ def get_accumulator_value_after_termination(instructions):
             return accumulator
 
 
-def execute_instructions(instructions, index_to_invert=None):
+def execute_instructions(instructions: List[List[str]], index_to_invert: int = None) -> Tuple[int, bool]:
     i = 0
     is_executed = []
     accumulator = 0
@@ -28,7 +29,6 @@ def execute_instructions(instructions, index_to_invert=None):
         if i == len(instructions):
             program_terminated = True
             break
-
         if instructions[i][0] == 'nop' and i == index_to_invert:
             is_executed.append(i)
             i += int(instructions[i][1])
