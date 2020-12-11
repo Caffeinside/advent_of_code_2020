@@ -166,7 +166,5 @@ def check_dim_4(seat_layout, input_row, input_col):
 if __name__ == '__main__':
     input_file_path = os.path.join(os.path.dirname(__file__), 'input.txt')
     seat_layout_data = parse_seat_layout(input_file_path)
-    assert get_final_occupied_seats_based_on_rules(seat_layout_data, update_seat_based_on_proximity) == 2494
-    assert get_final_occupied_seats_based_on_rules(seat_layout_data, update_seat_based_on_visibility) == 2306
-    # print('Solution 1: ', solution1(seat_layout_data))  # 2494
-    # print('Solution 2: ', solution2(seat_layout_data))  # 2306
+    print('Solution 1: ', get_final_occupied_seats_based_on_rules(seat_layout_data, update_seat_based_on_proximity))  # 2494
+    print('Solution 2: ', get_final_occupied_seats_based_on_rules(seat_layout_data, update_seat_based_on_visibility))  # 2306
