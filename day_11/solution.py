@@ -17,12 +17,9 @@ def get_final_occupied_seats_based_on_rules(seat_layout: List[List[str]], rules_
 
 
 def get_updated_layout(seat_layout: List[List[str]], rules_function: callable) -> List[List[str]]:
-    rows = len(seat_layout)
-    columns = len(seat_layout[0])
-
-    updated_seat_layout = [[[] for col in range(columns)] for col in range(rows)]
-    for row in range(rows):
-        for col in range(columns):
+    updated_seat_layout = [[[] for col in range(len(seat_layout[0]))] for row in range(len(seat_layout))]
+    for row in range(len(seat_layout)):
+        for col in range(len(seat_layout[0])):
             updated_seat_layout[row][col] = rules_function(seat_layout, row, col)
     return updated_seat_layout
 
@@ -60,25 +57,15 @@ def update_seat_based_on_visibility(seat_layout: List[List[str]], row: int, col:
     return updated_seat
 
 
-def get_adjacent_seats(seat_layout: List[List[str]], row: int, col: int) -> str:
+def get_adjacent_seats(seat_layout: List[List[str]], row: int, col: int) -> List[str]:
     adjacent_seats = []
-
-    if row != 0 and col != 0:
-        adjacent_seats += [seat_layout[row - 1][col], seat_layout[row - 1][col - 1], seat_layout[row][col - 1]]
-    if row != len(seat_layout) - 1 and col != len(seat_layout[0]) - 1:
-        adjacent_seats += [seat_layout[row + 1][col], seat_layout[row + 1][col + 1], seat_layout[row][col + 1]]
-    if row != 0 and col == 0:
-        adjacent_seats += [seat_layout[row - 1][col]]
-    if row == 0 and col != 0:
-        adjacent_seats += [seat_layout[row][col - 1]]
-    if row != len(seat_layout) - 1 and col == len(seat_layout[0]) - 1:
-        adjacent_seats += [seat_layout[row + 1][col]]
-    if row == len(seat_layout) - 1 and col != len(seat_layout[0]) - 1:
-        adjacent_seats += [seat_layout[row][col + 1]]
-    if row != 0 and col != len(seat_layout[0]) - 1:
-        adjacent_seats += seat_layout[row - 1][col + 1]
-    if row != len(seat_layout) - 1 and col != 0:
-        adjacent_seats += seat_layout[row + 1][col - 1]
+    for row_offset in range(-1, 2):
+        for col_offset in range(-1, 2):
+            boundary_check_row = 0 <= row + row_offset <= len(seat_layout) - 1
+            boundary_check_col = 0 <= col + col_offset <= len(seat_layout[0]) - 1
+            if (row_offset != 0 or col_offset != 0) and boundary_check_row and boundary_check_col:
+                if row_offset != 0 or col_offset != 0:
+                    adjacent_seats += seat_layout[row + row_offset][col + col_offset]
 
     return adjacent_seats
 
